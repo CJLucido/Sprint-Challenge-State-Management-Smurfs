@@ -4,6 +4,7 @@ import "./App.css";
 import {fetchSmurfs} from '../actions'
 
 import {connect} from 'react-redux'
+import SmurfList from "./organisms/SmurfList";
 
 class App extends Component {
  
@@ -19,6 +20,9 @@ class App extends Component {
         <button type="button" onClick={()=> this.props.fetchSmurfs()}>Get Smurfs!</button>
         {this.props.error && <p>{this.props.error}</p>}
         {this.props.isFetching  && <p>This is taking a really smurf time!</p> }
+
+        <SmurfList/>
+
       </div>
     );
   }
