@@ -8,6 +8,14 @@ export const LOADING_SMURF = "LOADING_SMURF"
 
 export const MAKE_SMURF = "MAKE_SMURF"
 
+export const NAME_SMURF = "NAME_SMURF"
+
+export const AGE_SMURF = "AGE_SMURF"
+
+export const HEIGHT_SMURF = "HEIGHT_SMURF"
+
+//////////////////////////////////////////
+
 export const smurfSuccess = (data) => 
 ({type: LOAD_SMURF_SUCCESS, payload: data})
 
@@ -18,6 +26,15 @@ export const smurfFailure = (error) => ({type: LOAD_SMURF_FAILURE, payload: erro
 export const smurfLoading = () => ({type: LOADING_SMURF})
 
 export const smurfMaking = (data) => ({type: MAKE_SMURF, payload: data })
+
+export const smurfNaming = (data) => ({type: NAME_SMURF, payload: data})
+
+export const smurfAging = (data) => ({type: AGE_SMURF, payload: data})
+
+export const smurfHeighting = (data) => ({type: HEIGHT_SMURF, payload: data})
+
+//////////////////////////////////////////////
+
 
 export const fetchSmurfs = () => dispatch => {
     dispatch(smurfLoading())
@@ -51,4 +68,18 @@ export const postSmurf = (nameSmurf, ageSmurf, heightSmurf) => dispatch => {
            dispatch(smurfFailure(error.message))
         })
 
+}
+
+///////////////////////////////////
+
+export const updateName = (name) =>dispatch =>{
+    dispatch(smurfNaming(name))
+}
+
+export const updateAge = (age) =>dispatch =>{
+    dispatch(smurfAging(age))
+}
+
+export const updateHeight = (height) =>dispatch =>{
+    dispatch(smurfHeighting(height))
 }

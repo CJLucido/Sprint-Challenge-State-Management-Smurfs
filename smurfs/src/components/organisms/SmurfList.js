@@ -14,6 +14,8 @@ console.log("this is smurfList props", props)
                 props.smurfs.map(item => (
                     <SmurfCard key={item.id} name={item.name} age={item.age} height={item.height}/>
                 ))
+
+                //name={item.name}
             }
 
             

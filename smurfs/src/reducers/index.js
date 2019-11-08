@@ -1,6 +1,14 @@
 
 
-import {LOAD_SMURF_SUCCESS, LOAD_SMURF_FAILURE, LOADING_SMURF, MAKE_SMURF} from "../actions"
+import {
+    LOAD_SMURF_SUCCESS,
+    LOAD_SMURF_FAILURE,
+    LOADING_SMURF,
+    MAKE_SMURF,
+    NAME_SMURF,
+    AGE_SMURF,
+    HEIGHT_SMURF
+                } from "../actions"
 
 
 
@@ -10,7 +18,9 @@ const initialState = {
     ],
     isFetching: false,
     error: null,
-
+    name: "hi",
+    age: "",
+    height: ""
 }
 
 
@@ -44,6 +54,22 @@ export function reducer(state = initialState, action){
                 isFetching: false,
                 error: null,
 
+            }
+        case NAME_SMURF:
+            console.log("this is state.name",state.name)
+            return {
+                ...state,
+                name: action.payload
+            }
+        case AGE_SMURF:
+            return{
+                ...state,
+                age: action.payload
+            }
+        case HEIGHT_SMURF:
+            return{
+                ...state,
+                height: action.payload
             }
         default:
             return state

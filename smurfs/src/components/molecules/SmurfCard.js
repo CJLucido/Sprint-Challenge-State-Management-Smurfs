@@ -11,3 +11,6 @@ export default function SmurfCard(props){
         </div>
     )
 }
+
+
+//<p>{props.name}</p>
