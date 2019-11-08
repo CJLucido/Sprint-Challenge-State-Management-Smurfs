@@ -1,6 +1,6 @@
 
 
-import {LOAD_SMURF_SUCCESS, LOAD_SMURF_FAILURE, LOADING_SMURF} from "../actions"
+import {LOAD_SMURF_SUCCESS, LOAD_SMURF_FAILURE, LOADING_SMURF, MAKE_SMURF} from "../actions"
 
 
 
@@ -9,7 +9,8 @@ const initialState = {
         {"name":"Brainey","age":200,"height":"5cm","id":0}
     ],
     isFetching: false,
-    error: null
+    error: null,
+
 }
 
 
@@ -33,6 +34,13 @@ export function reducer(state = initialState, action){
                 smurfs: [...state.smurfs],
                 isFetching: true,
                 error: null
+            }
+        case MAKE_SMURF:
+            return {
+                smurfs: [...state.smurfs].concat(action.payload),
+                isFetching: false,
+                error: null,
+
             }
         default:
             return state
