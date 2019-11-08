@@ -1,18 +1,38 @@
 
 
+import {LOAD_SMURF_SUCCESS, LOAD_SMURF_FAILURE, LOADING_SMURF} from "../actions"
+
+
+
 const initialState = {
     smurfs: [
         {"name":"Brainey","age":200,"height":"5cm","id":0}
-    ]
+    ],
+    isFetching: false,
+    error: null
 }
 
 
 
 export function reducer(state = initialState, action){
     switch(action.type){
-        case "":
+        case LOAD_SMURF_SUCCESS:
             return {
-                smurfs: [...state.smurfs, action.payload]
+                smurfs: [...state.smurfs, action.payload],
+                isFetching: false,
+                error: null
+            }
+         case LOAD_SMURF_FAILURE:
+            return {
+                smurfs: [...state.smurfs],
+                isFetching:false,
+                error: action.payload
+            }
+         case LOADING_SMURF:
+            return {
+                smurfs: [...state.smurfs],
+                isFetching: true,
+                error: null
             }
         default:
             return state
