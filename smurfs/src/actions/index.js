@@ -17,7 +17,7 @@ export const smurfFailure = (error) => ({type: LOAD_SMURF_FAILURE, payload: erro
 
 export const smurfLoading = () => ({type: LOADING_SMURF})
 
-export const smurfMaking = (nameSmurf, ageSmurf, heightSmurf) => ({type: MAKE_SMURF, payload: {nameSmurf: nameSmurf, ageSmurf: ageSmurf, heightSmurf: heightSmurf}})
+export const smurfMaking = (data) => ({type: MAKE_SMURF, payload: data })
 
 export const fetchSmurfs = () => dispatch => {
     dispatch(smurfLoading())
@@ -44,11 +44,11 @@ export const postSmurf = (nameSmurf, ageSmurf, heightSmurf) => dispatch => {
         )
         .then(res => {
             console.log("this is response.data", res.data)
-            dispatch(smurfSuccess(res.data))
+            dispatch(smurfMaking(res.data))
         })
         .catch(error => {
            console.log("this is error", error.message)
-          // dispatch(smurfFailure(error.message))
+           dispatch(smurfFailure(error.message))
         })
 
 }
