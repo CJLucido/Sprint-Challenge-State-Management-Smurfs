@@ -23,10 +23,26 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+It allows us to escape prop drilling through components that don't require the props (if there are many components hierarchically between the component holding state and the one that needs props).
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+The store is ideally where all of state is managed from. All components can access the state in the store if they are connected properly.
+
+Actions return action objects that trigger cases or if-conditionals in the reducer. The reducer reads the type of action and computes some outcome to rerender the state of the application. It may receive a data payload from the action object ad use it to compute a new state copy.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is the state that all components can see or listen to, a component state is specific to just one component or that component and any components accessing its state through props.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+redux-thunk is a middleware, it allows us to intercept the process of updating the state tree by inserting functions between actions and the reducer. This is useful in async operations 
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux is my favorite currently because it is easier to know where a problem is with state and work in just that area to fix it. The only issue is we haven't gone over some gotchas about proper posting to it and barely went over how to traverse it's data when nested.
 
 ## Project Set Up
 
