@@ -17,6 +17,8 @@ class App extends Component {
         <div>Have fun!</div>
 
         <button type="button" onClick={()=> this.props.fetchSmurfs()}>Get Smurfs!</button>
+        {this.props.error && <p>{this.props.error}</p>}
+        {this.props.isFetching  && <p>This is taking a really smurf time!</p> }
       </div>
     );
   }
