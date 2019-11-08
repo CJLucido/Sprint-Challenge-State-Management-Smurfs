@@ -18,8 +18,11 @@ const initialState = {
 export function reducer(state = initialState, action){
     switch(action.type){
         case LOAD_SMURF_SUCCESS:
+            // let noDoubles = action.payload
+            //     console.log("this is noDoubles", noDoubles)
             return {
-                smurfs: [...state.smurfs].concat(action.payload),
+                smurfs: action.payload,
+                // [...state.smurfs].concat(noDoubles)
                 isFetching: false,
                 error: null
             }

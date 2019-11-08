@@ -24,7 +24,7 @@ export const fetchSmurfs = () => dispatch => {
     axios
         .get('http://localhost:3333/smurfs')
         .then(res => {
-           // console.log("this is response.data", res.data)
+            console.log("this is response.data", res.data)
             dispatch(smurfSuccess(res.data))
         })
         .catch(error => {
@@ -43,7 +43,7 @@ export const postSmurf = (nameSmurf, ageSmurf, heightSmurf) => dispatch => {
             height: heightSmurf}
         )
         .then(res => {
-            console.log("this is response.data", res.data)
+            //console.log("this is response.data", res.data)
             dispatch(smurfMaking(res.data))
         })
         .catch(error => {
