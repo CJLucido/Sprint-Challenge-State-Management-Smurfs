@@ -3,7 +3,11 @@ import "./App.css";
 
 import {fetchSmurfs} from '../actions'
 
+import {connect} from 'react-redux'
+
 class App extends Component {
+ 
+
   render() {
     return (
       <div className="App">
@@ -12,10 +16,14 @@ class App extends Component {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
 
-        <button type="button" onClick={()=> fetchSmurfs()}>Get Smurfs!</button>
+        <button type="button" onClick={()=> this.props.fetchSmurfs()}>Get Smurfs!</button>
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps ={
+  fetchSmurfs
+}
+
+export default connect(state=> state, mapDispatchToProps)(App);

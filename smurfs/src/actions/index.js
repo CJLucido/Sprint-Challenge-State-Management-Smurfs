@@ -20,7 +20,7 @@ export const fetchSmurfs = () => dispatch => {
     axios
         .get('http://localhost:3333/smurfs')
         .then(res => {
-            console.log("this is response", res)
+            console.log("this is response.data", res.data)
         })
         .catch(error => {
             console.log("this is error", error)
