@@ -5,6 +5,8 @@ import {postSmurf} from '../../actions'
 
 function SmurfForm(props){
 
+    //////////REFACTOR BIG ISSUE #3
+
     const [nameSmurf, setNameSmurf] = useState("")
     console.log("name smurf", nameSmurf)
 
@@ -26,6 +28,7 @@ function SmurfForm(props){
          setHeightSmurf(e.target.value) 
     }
 
+/////////////////
 
     return (
         <div>
